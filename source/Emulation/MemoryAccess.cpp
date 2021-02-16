@@ -8,11 +8,11 @@ MemoryAccess::MemoryAccess(SMBEngine& engine, uint8_t* value) :
     this->value = value;
 }
 
-MemoryAccess::MemoryAccess(SMBEngine& engine, uint8_t constant) :
+MemoryAccess::MemoryAccess(SMBEngine& engine, uint8_t constant_DONTREF) :
     engine(engine)
 {
-    this->constant = constant;
-    this->value = &constant;
+    this->constant = constant_DONTREF;
+    this->value = &constant; //this was evil
 }
 
 MemoryAccess& MemoryAccess::operator = (uint8_t value)
